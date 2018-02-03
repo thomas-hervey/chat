@@ -6,10 +6,12 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-import chat from './reducers'
+import { addUser } from './actions'
+import reducers from './reducers'
 
-const store = createStore(chat) // store all data for application, passing in our reducer
+const store = createStore(reducers) // store all data for application, passing in our reducer
 
+store.dispatch(addUser('Me')) // register myself as present in the chat
 
 ReactDOM.render(
   // hook up store to our app, using a provider
